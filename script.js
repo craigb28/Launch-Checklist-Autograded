@@ -1,18 +1,13 @@
 // Write your JavaScript code here!
-// const { formSubmission } = require("./scriptHelper.js");
-
-// const { addDestinationInfo } = require("./scriptHelper");
-
-// const { pickPlanet } = require("./scriptHelper");
-
-// const { myFetch } = require("./scriptHelper");
-
-// import { formSubmission, validateInput } from "./scriptHelper";
+// import {myFetch, pickPlanet, addDestinationInfo, formSubmission} from './scriptHelper.js'
 
 window.addEventListener("load", function () {
   let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
   let listedPlanetsResponse = myFetch();
+
+  // Can't do a .then() off of a variable
+
   listedPlanetsResponse
     .then(function (result) {
       listedPlanets = result;
@@ -35,7 +30,35 @@ window.addEventListener("load", function () {
   document
     .getElementById("launchForm")
     .addEventListener("submit", function (event) {
-      formSubmission();
+    
+      list = document.getElementById("faultyItems");
+      pilot = document.querySelector("input[name=pilotName]").value;
+      copilot = document.querySelector("input[name=copilotName]").value;
+      fuelLevel = document.querySelector("input[name=fuelLevel]").value;
+      cargoLevel = document.querySelector("input[name=cargoMass]").value;
+      
       event.preventDefault();
+
+      formSubmission(document, list, pilotName, copilotName, fuelLevel, cargoLevel);
+  //  if (
+  //       pilotName === "" ||
+  //       copilotName === "" ||
+  //       fuelLevel === "" ||
+  //       cargoLevel === ""
+  //     ) {
+  //       alert("All fields are required!");
+  //       return;
+  //     }
+  //     if (
+  //       validateInput(pilotName) !== "Not a Number" ||
+  //       validateInput(copilotName) !== "Not a Number" ||
+  //       validateInput(fuelLevel) !== "Is a Number" ||
+  //       validateInput(cargoLevel) !== "Is a Number"
+  //     ) {
+  //       alert(
+  //         "Pilot and copilot names must be words. Fuel level and cargo level must be numbers."
+  //       );
+  //       return;
+  //     }
     });
 });

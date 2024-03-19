@@ -7,7 +7,7 @@ function addDestinationInfo(
   name,
   diameter,
   star,
-  distance,
+  distance, 
   moons,
   imageUrl
 ) {
@@ -39,8 +39,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const fuelStatusElement = document.getElementById("fuelStatus");
   const cargoStatusElement = document.getElementById("cargoStatus");
   const launchStatusElement = document.getElementById("launchStatus");
-
-  // combine entries into array.  Map through array with function, returning the appropriate value, then use array "includes" to throw alert?
 
   pilotStatusElement.innerHTML = `Pilot ${pilot} is ready for launch`;
   copilotStatusElement.innerHTML = `Co-pilot ${copilot} is ready for launch`;
